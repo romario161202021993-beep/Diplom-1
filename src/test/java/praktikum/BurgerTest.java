@@ -4,7 +4,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import static org.junit.Assert.*;
@@ -19,10 +18,10 @@ public class BurgerTest {
     private Bun mockBun;
 
     @Mock
-    private Ingredient mockIngredient1;
+    private Ingredient mockSauce;
 
     @Mock
-    private Ingredient mockIngredient2;
+    private Ingredient mockFilling;
 
     @Before
     public void setUp() {
@@ -36,43 +35,66 @@ public class BurgerTest {
     }
 
     @Test
-    public void addIngredientTest() {
-        burger.addIngredient(mockIngredient1);
+    public void addIngredientAddsToList() {
+        burger.addIngredient(mockSauce);
         assertEquals(1, burger.ingredients.size());
-        assertEquals(mockIngredient1, burger.ingredients.get(0));
     }
 
     @Test
-    public void removeIngredientTest() {
-        burger.addIngredient(mockIngredient1);
-        burger.addIngredient(mockIngredient2);
+    public void addIngredientAddsCorrectIngredient() {
+        burger.addIngredient(mockSauce);
+        assertEquals(mockSauce, burger.ingredients.get(0));
+    }
+
+    @Test
+    public void removeIngredientReducesSize() {
+        burger.addIngredient(mockSauce);
+        burger.addIngredient(mockFilling);
 
         burger.removeIngredient(0);
 
         assertEquals(1, burger.ingredients.size());
-        assertEquals(mockIngredient2, burger.ingredients.get(0));
     }
 
     @Test
-    public void moveIngredientTest() {
-        burger.addIngredient(mockIngredient1);
-        burger.addIngredient(mockIngredient2);
+    public void removeIngredientRemovesCorrectItem() {
+        burger.addIngredient(mockSauce);
+        burger.addIngredient(mockFilling);
+
+        burger.removeIngredient(0);
+
+        assertEquals(mockFilling, burger.ingredients.get(0));
+    }
+
+    @Test
+    public void moveIngredientChangesFirstPosition() {
+        burger.addIngredient(mockSauce);
+        burger.addIngredient(mockFilling);
 
         burger.moveIngredient(0, 1);
 
-        assertEquals(mockIngredient1, burger.ingredients.get(1));
-        assertEquals(mockIngredient2, burger.ingredients.get(0));
+        assertEquals(mockFilling, burger.ingredients.get(0));
+    }
+
+    @Test
+    public void moveIngredientChangesSecondPosition() {
+        burger.addIngredient(mockSauce);
+        burger.addIngredient(mockFilling);
+
+        burger.moveIngredient(0, 1);
+
+        assertEquals(mockSauce, burger.ingredients.get(1));
     }
 
     @Test
     public void getPriceWithBunAndIngredientsTest() {
         when(mockBun.getPrice()).thenReturn(100f);
-        when(mockIngredient1.getPrice()).thenReturn(50f);
-        when(mockIngredient2.getPrice()).thenReturn(75f);
+        when(mockSauce.getPrice()).thenReturn(50f);
+        when(mockFilling.getPrice()).thenReturn(75f);
 
         burger.setBuns(mockBun);
-        burger.addIngredient(mockIngredient1);
-        burger.addIngredient(mockIngredient2);
+        burger.addIngredient(mockSauce);
+        burger.addIngredient(mockFilling);
 
         // ОР: цена = булка*2 + ингредиент1 + ингредиент2
         float expectedPrice = 100f * 2 + 50f + 75f; // = 325
@@ -93,19 +115,21 @@ public class BurgerTest {
     public void getReceiptTest() {
         when(mockBun.getName()).thenReturn("Краторная булка");
         when(mockBun.getPrice()).thenReturn(100f);
-        when(mockIngredient1.getType()).thenReturn(IngredientType.SAUCE);
-        when(mockIngredient1.getName()).thenReturn("Соус Spicy-X");
-        when(mockIngredient1.getPrice()).thenReturn(50f);
+        when(mockSauce.getType()).thenReturn(IngredientType.SAUCE);
+        when(mockSauce.getName()).thenReturn("Соус Spicy-X");
+        when(mockSauce.getPrice()).thenReturn(50f);
 
         burger.setBuns(mockBun);
-        burger.addIngredient(mockIngredient1);
+        burger.addIngredient(mockSauce);
 
         String receipt = burger.getReceipt();
 
-        // ОР: чек содержит название булки, ингредиента и итоговую цену
-        assertNotNull(receipt);
-        assertTrue(receipt.contains("Краторная булка"));
-        assertTrue(receipt.contains("Соус Spicy-X"));
-        assertTrue(receipt.contains("250")); // общая цена
+        String expectedReceipt = String.format("(==== Краторная булка ====)%n" +
+                "= sauce Соус Spicy-X =%n" +
+                "(==== Краторная булка ====)%n" +
+                "%n" +
+                "Price: 250,000000%n");
+
+        assertEquals(expectedReceipt, receipt);
     }
 }

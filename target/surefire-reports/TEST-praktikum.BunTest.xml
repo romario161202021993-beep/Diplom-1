@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="praktikum.BunTest" time="0.055" tests="6" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="praktikum.BunTest" time="0.075" tests="6" errors="0" skipped="0" failures="0">
   <properties>
     <property name="sun.desktop" value="windows"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
@@ -17,7 +17,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="RU"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Amazon Corretto\jdk11.0.28_6\bin"/>
-    <property name="sun.java.command" value="C:\Users\Kharchenko Family\AppData\Local\Temp\surefire5878461345259669194\surefirebooter-20251209174633998_3.jar C:\Users\Kharchenko Family\AppData\Local\Temp\surefire5878461345259669194 2025-12-09T17-46-33_898-jvmRun1 surefire-20251209174633998_1tmp surefire_0-20251209174633998_2tmp"/>
+    <property name="sun.java.command" value="C:\Users\Kharchenko Family\AppData\Local\Temp\surefire4469219502007657580\surefirebooter-20251210132827213_3.jar C:\Users\Kharchenko Family\AppData\Local\Temp\surefire4469219502007657580 2025-12-10T13-28-27_092-jvmRun1 surefire-20251210132827213_1tmp surefire_0-20251210132827213_2tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="C:\Users\Kharchenko Family\Diplom\Diplom-1\target\test-classes;C:\Users\Kharchenko Family\Diplom\Diplom-1\target\classes;C:\Users\Kharchenko Family\.m2\repository\junit\junit\4.13.2\junit-4.13.2.jar;C:\Users\Kharchenko Family\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\Kharchenko Family\.m2\repository\org\mockito\mockito-core\5.20.0\mockito-core-5.20.0.jar;C:\Users\Kharchenko Family\.m2\repository\net\bytebuddy\byte-buddy\1.17.7\byte-buddy-1.17.7.jar;C:\Users\Kharchenko Family\.m2\repository\net\bytebuddy\byte-buddy-agent\1.17.7\byte-buddy-agent-1.17.7.jar;C:\Users\Kharchenko Family\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -33,7 +33,7 @@
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="C:\Users\Kharchenko Family\AppData\Local\Temp\surefire5878461345259669194\surefirebooter-20251209174633998_3.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\Kharchenko Family\AppData\Local\Temp\surefire4469219502007657580\surefirebooter-20251210132827213_3.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="11.0.28+6-LTS"/>
@@ -61,10 +61,10 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="55.0"/>
   </properties>
-  <testcase name="bunGetPriceTest[0]" classname="praktikum.BunTest" time="0.004"/>
-  <testcase name="bunGetNameTest[0]" classname="praktikum.BunTest" time="0.0"/>
-  <testcase name="bunGetPriceTest[1]" classname="praktikum.BunTest" time="0.0"/>
-  <testcase name="bunGetNameTest[1]" classname="praktikum.BunTest" time="0.0"/>
-  <testcase name="bunGetPriceTest[2]" classname="praktikum.BunTest" time="0.0"/>
-  <testcase name="bunGetNameTest[2]" classname="praktikum.BunTest" time="0.0"/>
+  <testcase name="getPriceTest[Тестовые данные: black bun 100]" classname="praktikum.BunTest" time="0.005"/>
+  <testcase name="getNameTest[Тестовые данные: black bun 100]" classname="praktikum.BunTest" time="0.0"/>
+  <testcase name="getPriceTest[Тестовые данные: white bun 200]" classname="praktikum.BunTest" time="0.0"/>
+  <testcase name="getNameTest[Тестовые данные: white bun 200]" classname="praktikum.BunTest" time="0.0"/>
+  <testcase name="getPriceTest[Тестовые данные: red bun 300]" classname="praktikum.BunTest" time="0.0"/>
+  <testcase name="getNameTest[Тестовые данные: red bun 300]" classname="praktikum.BunTest" time="0.0"/>
 </testsuite>

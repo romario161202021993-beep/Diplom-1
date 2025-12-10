@@ -20,7 +20,7 @@ public class BunTest {
         this.price = price;
     }
 
-    @Parameterized.Parameters
+    @Parameterized.Parameters(name = "Тестовые данные: {0} {1}")
     public static Collection<Object[]> data() {
         return Arrays.asList(new Object[][]{
                 {"black bun", 100f},
@@ -30,13 +30,13 @@ public class BunTest {
     }
 
     @Test
-    public void bunGetNameTest() {
+    public void getNameTest() {
         Bun bun = new Bun(name, price);
         assertEquals(name, bun.getName());
     }
 
     @Test
-    public void bunGetPriceTest() {
+    public void getPriceTest() {
         Bun bun = new Bun(name, price);
         assertEquals(price, bun.getPrice(), 0.001);
     }

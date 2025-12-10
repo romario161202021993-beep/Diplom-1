@@ -22,30 +22,29 @@ public class IngredientTest {
         this.price = price;
     }
 
-    @Parameterized.Parameters
+    @Parameterized.Parameters(name = "Тип: {0}, Название: {1}, Цена: {2}")
     public static Collection<Object[]> data() {
         return Arrays.asList(new Object[][]{
-                {IngredientType.SAUCE, "hot sauce", 100f},
-                {IngredientType.FILLING, "cutlet", 200f},
-                {IngredientType.FILLING, "dinosaur", 150f},
-                {IngredientType.SAUCE, "sour cream", 50f}
+                {IngredientType.SAUCE, "Соус Spicy-X", 50f},
+                {IngredientType.FILLING, "Мясо бессмертных моллюсков", 100f},
+                {IngredientType.SAUCE, "Соус традиционный галактический", 75f}
         });
     }
 
     @Test
-    public void ingredientGetTypeTest() {
+    public void getTypeTest() {
         Ingredient ingredient = new Ingredient(type, name, price);
         assertEquals(type, ingredient.getType());
     }
 
     @Test
-    public void ingredientGetNameTest() {
+    public void getNameTest() {
         Ingredient ingredient = new Ingredient(type, name, price);
         assertEquals(name, ingredient.getName());
     }
 
     @Test
-    public void ingredientGetPriceTest() {
+    public void getPriceTest() {
         Ingredient ingredient = new Ingredient(type, name, price);
         assertEquals(price, ingredient.getPrice(), 0.001);
     }
